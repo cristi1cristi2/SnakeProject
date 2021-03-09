@@ -1,29 +1,33 @@
 ﻿  Source.cpp
 C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(67,14): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(95,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(105,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(165,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(166,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(316,37): warning C4018: '<': signed/unsigned mismatch
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(316,90): warning C4018: '<': signed/unsigned mismatch
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(326,37): warning C4018: '<': signed/unsigned mismatch
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(326,90): warning C4018: '<': signed/unsigned mismatch
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(432,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(432,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(436,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(436,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(439,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(439,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(442,14): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(97,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(106,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(173,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(174,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(324,37): warning C4018: '<': signed/unsigned mismatch
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(324,90): warning C4018: '<': signed/unsigned mismatch
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(334,37): warning C4018: '<': signed/unsigned mismatch
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(334,90): warning C4018: '<': signed/unsigned mismatch
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(347,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(347,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(352,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(352,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(359,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(359,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(364,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(364,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(470,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(470,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(494,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(494,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(499,14): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(443,14): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
+C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(500,14): warning C4244: 'initializing': conversion from 'const T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(444,52): warning C4474: 'printf' : too many arguments passed for format string
-C:\Users\crist\source\repos\cristi1cristi2\snakeProject\SFML\Source.cpp(444,52): message : placeholders and their parameters expect 2 variadic arguments, but 4 were provided
   SFML.vcxproj -> C:\Users\crist\source\repos\cristi1cristi2\snakeProject\x64\Debug\SFML.exe

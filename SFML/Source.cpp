@@ -16,7 +16,7 @@ struct point
 {
 	int x = 0;
 	int y = 0;
-
+	sf::Color color = sf::Color(0, 0, 0, 255);
 } p[1000];
 
 struct pair
@@ -86,24 +86,31 @@ bool cyclu(int n, int graph[][1000], int path[][1000], int cur1, int cur2)
 }
 
 
-int game = 1, dir = 0, size = 1, speed = 30;
+int game = 1, dir = 0, size = 1, speed = 30, colorConstant = 20, done = 0;
 bool retry = false;
 int randomx = 0, randomy = 0;
-bool good = true, human = false, greedy = false, hamiltonian = true, noPath = true, chosen = false;
-int windowsize = 400, n = windowsize / 50;
+bool good = true, human = false, greedy = true, hamiltonian = false, noPath = true, chosen = false, foodColor = false;
+int windowsize = 500, n = windowsize / 50;
+sf::Color pallete[5] = { sf::Color::Blue, sf::Color::Cyan, sf::Color::Magenta, sf::Color::Yellow, sf::Color(255,165,0) };
+sf::Color fc;
 void main()
 {
 	//declaring and initializing the window, the player, and the food
 
 	sf::RenderWindow window(sf::VideoMode(windowsize, windowsize), "Ssnek", sf::Style::Close);
 	sf::RectangleShape player(sf::Vector2f(50.f, 50.f));
-	sf::RectangleShape head(sf::Vector2f(30.f, 30.f));
 	sf::RectangleShape food(sf::Vector2f(50.f, 50.f));
-	head.setFillColor(sf::Color::Black);
-	food.setFillColor(sf::Color::Red);
+	sf::RectangleShape tileBlack(sf::Vector2f(50.f, 50.f));
+	sf::RectangleShape tileGray(sf::Vector2f(50.f, 50.f));
 	player.setPosition(0, 0);
 	srand(time(NULL));
-
+	sf::Color color1(60, 60, 60);
+	tileBlack.setFillColor(sf::Color(20, 20, 20));
+	tileGray.setFillColor(color1);
+	if (foodColor == false) {
+		foodColor = true;
+		fc = pallete[rand() % 5];
+	}
 	//the next bit chooses a random position for the food
 
 	randomx = 1 + rand() % (windowsize - 50);
@@ -141,10 +148,11 @@ void main()
 					human = false;
 					greedy = false;
 					hamiltonian = true;
+					game = 2;
 				}
 				if (game == 1 && human == true)
 				{
-					if (event.key.code == sf::Keyboard::Right && dir != 1 && chosen==false) { dir = 0; chosen = true; }//right
+					if (event.key.code == sf::Keyboard::Right && dir != 1 && chosen == false) { dir = 0; chosen = true; }//right
 					else if (event.key.code == sf::Keyboard::Left && dir != 0 && chosen == false) { dir = 1; chosen = true; }//left
 					else if (event.key.code == sf::Keyboard::Down && dir != 3 && chosen == false) { dir = 2; chosen = true; }//down
 					else if (event.key.code == sf::Keyboard::Up && dir != 2 && chosen == false) { dir = 3; chosen = true; }//up
@@ -184,7 +192,7 @@ void main()
 					u = false;
 				}
 			}
-			printf("left %d right %d  up %d down %d\n", l, r, u, d);
+			//printf("left %d right %d  up %d down %d\n", l, r, u, d);
 			//printf("%d %d\n", x, y);
 
 			//these next 4 ifs check wheter choosing a direction gets the snake closer to the food
@@ -249,7 +257,7 @@ void main()
 								dir = 3;
 							}
 						}
-			printf("dir: %d\n", dir);
+			//printf("dir: %d\n", dir);
 		}
 		else if (game == 1 && hamiltonian == true)//here we follow the path of the hamiltonian cycle
 		{
@@ -304,8 +312,8 @@ void main()
 					dir = 3;
 				}
 			}
-			printf("dir: %d\n", dir);
-			printf("coords: %d %d\n", x, y);
+		//	printf("dir: %d\n", dir);
+			//printf("coords: %d %d\n", x, y);
 
 		}
 
@@ -315,7 +323,7 @@ void main()
 			sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 			if (0 < mousePos.x && mousePos.x < window.getSize().x && 0 < mousePos.y && mousePos.y < window.getSize().y)
 			{
-				printf("clicked at (%d, %d)\n", mousePos.x, mousePos.y);
+				//printf("clicked at (%d, %d)\n", mousePos.x, mousePos.y);
 				player.setFillColor(sf::Color::Magenta);
 			}
 		}
@@ -325,12 +333,40 @@ void main()
 			sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 			if (0 < mousePos.x && mousePos.x < window.getSize().x && 0 < mousePos.y && mousePos.y < window.getSize().y)
 			{
-				printf("Right-clicked at (%d, %d)\n", mousePos.x, mousePos.y);
+			//	printf("Right-clicked at (%d, %d)\n", mousePos.x, mousePos.y);
 				player.setFillColor(sf::Color::Cyan);
 			}
 		}
 		window.clear();
 		//we clear the window, update the snake position based on direction, choose new position for food if needed and paint the screen again
+
+		for (int i = 0; i < windowsize; i += 50)
+			for (int j = 0; j < windowsize; j += 50) {
+				if ((i / 50) % 2) {
+					if ((j / 50) % 2) {
+						tileBlack.setPosition(i, j);
+						window.draw(tileBlack);
+					}
+					else
+					{
+						tileGray.setPosition(i, j);
+						window.draw(tileGray);
+					}
+				}
+				else
+				{
+					if ((j / 50) % 2) {
+						tileGray.setPosition(i, j);
+						window.draw(tileGray);
+					}
+					else
+					{
+						tileBlack.setPosition(i, j);
+						window.draw(tileBlack);
+					}
+				}
+
+			}
 		if (game == 1)
 		{
 			for (int i = size; i > 0; i--)
@@ -366,11 +402,13 @@ void main()
 				if (speed > 100)speed -= 20;
 				good = true;
 				int bothx = 0, bothy = 0;
+				fc = pallete[rand() % 5];
+
 				while (good && size != n * n + 1)
 				{
 					randomx = 1 + rand() % (windowsize - 50);
 					randomy = 1 + rand() % (windowsize - 50);
-					printf("random: %d %d\n", randomx, randomy);
+					//printf("random: %d %d\n", randomx, randomy);
 
 					for (int i = 0; i < n; i++)
 					{
@@ -405,7 +443,7 @@ void main()
 
 					if (size > 0.8 * n * n) { //last few foods are placed directly in front of the snake, it might use some more randomizing
 
-						printf("bucla! %d\n", size);
+					//	printf("bucla! %d\n", size);
 
 						for (int x = 0; x < windowsize; x += 50)
 							for (int y = 0; y < windowsize; y += 50) {
@@ -430,18 +468,37 @@ void main()
 			}
 
 			food.setPosition(randomx, randomy);
+			food.setFillColor(fc);
 			window.draw(food);
+			printf("size: %d\n", size);
+			//printf("colorconst: %d\n", colorConstant);
+
+			
+				//colorConstant = 480 / size;
+
 			for (int i = 0; i < size; i++)
 			{
+				if ((colorConstant * i) < 240) {
+					p[i].color.r = 240;
+					p[i].color.g = colorConstant * i;
+				}
+				else
+				{
+					p[i].color.r = 240 - colorConstant * (i - 11);
+					p[i].color.g = 240;
+					if (colorConstant * (i - 11) > 240)
+						p[i].color.r = 0;
+				}
+
+
 				player.setPosition(p[i].x, p[i].y);
+				player.setFillColor(p[i].color);
 				window.draw(player);
 			}
-			head.setPosition(p[0].x + 10, p[0].y + 10);
-			window.draw(head);
 			window.display();
 			int foodx = food.getPosition().x;
 			int foody = food.getPosition().y;
-			printf(" player: %d %d\n", foodx, foody, p[0].x / 50, p[0].y / 50);
+		//	printf(" player: %d %d\n", foodx, foody, p[0].x / 50, p[0].y / 50);
 			chosen = false;
 			Sleep(speed);
 		}
@@ -460,19 +517,21 @@ void main()
 				p[0].x = 0;
 				p[0].y = 0;
 				player.setPosition(0, 0);
-				head.setPosition(10, 10);
 				retry = false;
 				noPath = true;
 				randomx = 1 + rand() % (windowsize - 50);
 				randomy = 1 + rand() % (windowsize - 50);
+				fc = pallete[rand() % 5];
 				for (int i = 0; i < n; i++)
 				{
 					if (randomx <= (1 + i) * 50 && randomx > i * 50) randomx = (i + 1) * 50;
 					if (randomy <= (1 + i) * 50 && randomy > i * 50) randomy = (i + 1) * 50;
 
 					game = 1;
+					done = 0;
 					dir = 0;
 					speed = 30;
+					colorConstant = 20;
 				}
 			}
 		}
